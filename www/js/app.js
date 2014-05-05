@@ -42,14 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-      .state('app.splash', {
-          url: "/splash",
-          views: {
-              'menuContent' :{
-                  templateUrl: "templates/splash.html"
-              }
-          }
-      })
+
     .state('app.playlists', {
       url: "/playlists",
       views: {
@@ -68,7 +61,31 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'PlaylistCtrl'
         }
       }
-    });
+    })
+      .state('app.sign_up', {
+          url: "/sign_up",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/sign_up.html"
+              }
+          }
+      })
+      .state('app.sign_in', {
+          url: "/sign_in",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/sign_in.html"
+              }
+          }
+      })
+      .state('app.splash', {
+          url: "/splash",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/splash.html"
+              }
+          }
+      });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/splash');
 });

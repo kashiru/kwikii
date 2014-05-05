@@ -78,6 +78,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.home', {
+          url: "/home",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/home.html"
+              }
+          }
+      })
+      .state('app.find_merchant', {
+          url: "/find_merchant",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/find_merchant.html"
+              }
+          }
+      })
       .state('app.splash', {
           url: "/splash",
           views: {

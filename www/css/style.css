@@ -80,3 +80,21 @@
 
 }
 
+.text-muted {
+    color: #999;
+}
+
+.metric-value{
+  font-size: 18px;
+}
+
+.metric-label{
+    font-size: 12px;
+}
+
+small, .small {
+    font-size: 85%;
+}
+.pull-right{
+    float: right;
+}

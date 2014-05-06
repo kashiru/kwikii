@@ -1,0 +1,24 @@
+<ion-view title="Confirmation" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header bg-pattern">
+        <div class="list card">
+            <div class="item">
+                Payment confirmation #1032023943
+                <p>
+                    Your payment of {{confirmed_amount | currency }} has been received by Paris Deli
+                </p>
+            </div>
+            <div class="item item-avatar">
+                <img src="img/parisdeli.jpg">
+                <h2>Paris Deli</h2>
+                <p class="small">Adeola Odeku, Victoria Island</p>
+            </div>
+            <a href="" class="item item-icon-left">
+                <i class="text-muted icon ion-star"></i>
+                Save as favorite
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

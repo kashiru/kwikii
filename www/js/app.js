@@ -94,6 +94,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.payment_confirmation', {
+          url: "/payment_confirmation",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/payment_confirmation.html"
+              }
+          }
+      })
       .state('app.splash', {
           url: "/splash",
           views: {

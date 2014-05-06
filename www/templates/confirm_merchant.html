@@ -1,18 +1,21 @@
 <div class="modal">
     <ion-header-bar>
-        <h1 class="title">Confirm business</h1>
+        <h1 class="title">Confirm amount</h1>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="bg-pattern">
         <div class="list card">
 
-            <div class="item">
+            <div class="item item-avatar">
+                <img src="img/parisdeli.jpg">
                 <h2>Paris Deli</h2>
                 <p class="small">Adeola Odeku, Victoria Island</p>
             </div>
 
             <div class="item item-body">
-                <img class="full-image" src="img/parisdeli.jpg">
-
+                <p>
+                    Located in the heart of Victoria Island. Paris deli offers a great atmosphere for lunch, dinner, meetings
+                    and everything in between with a bistro style presentation
+                </p>
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
@@ -29,18 +32,23 @@
 
         </div>
 
+
+
         <div class="padding-left padding-right">
-            <a href="" ng-click="" class="button button-block button-large button-positive">
-                Confirm merchant
+            <label class="item item-input">
+                <input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">
+            </label>
+
+            <a href="" ng-click="confirmMerchant(amount_to_pay)" class="button button-block button-large button-positive">
+                Pay {{amount_to_pay | currency}}
             </a>
         </div>
 
         <div class="padding-left padding-right">
-            <a href="" ng-click="" class="button button-block button-large button-light">
+            <a href="" ng-click="closeModal()" class="button button-block button-large button-stable">
                 Close
             </a>
         </div>
     </ion-content>
 </div>
 
-<a href="http://www.tripadvisor.com/LocationPhotoDirectLink-g304026-d2356405-i37173365-Paris_Deli-Lagos_Lagos_State.html"><img alt=" " src="http://media-cdn.tripadvisor.com/media/photo-s/02/37/38/75/nice-interior-good-seats.jpg"/></a><br/>This photo of Paris Deli is courtesy of TripAdvisor

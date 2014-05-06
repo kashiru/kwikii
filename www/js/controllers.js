@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal) {
+.controller('AppCtrl', function($scope, $ionicModal, $location) {
 
         var rander = Math.random();
         $ionicModal.fromTemplateUrl('templates/confirm_merchant.html?q=' + rander, {
@@ -19,6 +19,14 @@ angular.module('starter.controllers', [])
         $scope.$on('$destroy', function() {
             $scope.modal.remove();
         });
+
+
+        $scope.confirmMerchant = function(val){
+          $scope.closeModal();
+          $location.path('/app/payment_confirmation');
+          $scope.confirmed_amount = val;
+        }
+
 
 
 })

@@ -98,3 +98,11 @@ small, .small {
 .pull-right{
     float: right;
 }
+
+.tight-box{
+    padding: 0;
+}
+
+.bg-pattern{
+    background-color: #f7f7f7;
+}

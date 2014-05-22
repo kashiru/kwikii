@@ -1,5 +1,6 @@
 .DS_Store
 /dist
+/platforms
 node_modules
 
 # Exclude the build directory

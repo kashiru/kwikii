@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $location) {
+.controller('AppCtrl', function($scope, $ionicModal, $location, $ionicActionSheet) {
+
+        $scope.amount_to_pay = 12000.0;
 
         var rander = Math.random();
         $ionicModal.fromTemplateUrl('templates/confirm_merchant.html?q=' + rander, {
@@ -8,6 +10,7 @@ angular.module('starter.controllers', [])
             animation: 'slide-in-up'
         }).then(function(modal) {
                 $scope.modal = modal;
+//            $scope.modal.show();
             });
         $scope.openModal = function() {
             $scope.modal.show();
@@ -25,7 +28,28 @@ angular.module('starter.controllers', [])
           $scope.closeModal();
           $location.path('/app/payment_confirmation');
           $scope.confirmed_amount = val;
-        }
+        };
+
+        $scope.showPaymentSheet = function() {
+
+            // Show the action sheet
+            $ionicActionSheet.show({
+                buttons: [
+                    { text: 'Verve personal' },
+                    { text: 'GTB Mastercard' },
+                    { text: 'New payment option' }
+                ],
+                //destructiveText: '',
+                titleText: 'Select payment method',
+                cancelText: 'Cancel',
+                buttonClicked: function(index) {
+                    return true;
+                }
+            });
+
+        };
+
+
 
 
 

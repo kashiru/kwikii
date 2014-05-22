@@ -3,50 +3,82 @@
         <h1 class="title">Confirm amount</h1>
     </ion-header-bar>
     <ion-content class="bg-pattern">
-        <div class="list card">
+        <div class="list">
 
             <div class="item item-avatar">
                 <img src="img/parisdeli.jpg">
                 <h2>Paris Deli</h2>
                 <p class="small">Adeola Odeku, Victoria Island</p>
             </div>
+            <a class="item item-icon-left" ng-click="showPaymentSheet()">
+                <i class="icon ion-card"></i>
 
-            <div class="item item-body">
-                <p>
-                    Located in the heart of Victoria Island. Paris deli offers a great atmosphere for lunch, dinner, meetings
-                    and everything in between with a bistro style presentation
-                </p>
+                <span class="">GTB personal mastercard</span>
+            </a>
+            <div class="item amount-item balanced-bg light">
+                 <span class="pull-right text-bofld">NGN {{amount_to_pay | number}}</span>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-star"></i>
-                    Save Favorite
-                </a>
+            <!--<div class="item item-body">-->
+                <!--<p>-->
+                    <!--Located in the heart of Victoria Island. Paris deli offers a great atmosphere for lunch, dinner, meetings-->
+                    <!--and everything in between with a bistro style presentation-->
+                <!--</p>-->
+            <!--</div>-->
 
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i>
-                    Get directions
-                </a>
+            <!--<div class="item tabs tabs-secondary tabs-icon-left">-->
+                <!--<a class="tab-item" href="#">-->
+                    <!--<i class="icon ion-star"></i>-->
+                    <!--Save Favorite-->
+                <!--</a>-->
+
+                <!--<a class="tab-item" href="" ng-click="showPaymentSheet()">-->
+                    <!--<i class="icon ion-share"></i>-->
+                    <!--Get directions-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <div class="item tight-item">
+                <div class="row">
+                    <div class="col key-input">1</div>
+                    <div class="col key-input">2</div>
+                    <div class="col key-input">3</div>
+                </div>
+                <div class="row">
+                    <div class="col key-input">4</div>
+                    <div class="col key-input">5</div>
+                    <div class="col key-input">6</div>
+                </div>
+                <div class="row">
+                    <div class="col key-input">7</div>
+                    <div class="col key-input">8</div>
+                    <div class="col key-input">9</div>
+                </div>
+                <div class="row">
+                    <div class="col key-input">C</div>
+                    <div class="col key-input">0</div>
+                    <div class="col key-input">.</div>
+                </div>
             </div>
 
         </div>
 
 
 
+
         <div class="padding-left padding-right">
-            <label class="item item-input">
-                <input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">
-            </label>
+            <!--<label class="item item-input">-->
+                <!--<input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">-->
+            <!--</label>-->
 
             <a href="" ng-click="confirmMerchant(amount_to_pay)" class="button button-block button-large button-positive">
-                Pay {{amount_to_pay | currency}}
+                Pay NGN {{amount_to_pay | number}}
             </a>
         </div>
 
         <div class="padding-left padding-right">
             <a href="" ng-click="closeModal()" class="button button-block button-large button-stable">
-                Close
+                Cancel
             </a>
         </div>
     </ion-content>

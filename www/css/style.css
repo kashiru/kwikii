@@ -135,3 +135,7 @@ small, .small {
     line-height: 44px;
     font-size: 26px;
 }
+
+.pay-label{
+    font-size: 14px;
+}

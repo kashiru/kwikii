@@ -35,8 +35,8 @@ angular.module('starter.controllers', [])
             // Show the action sheet
             $ionicActionSheet.show({
                 buttons: [
-                    { text: 'Verve personal' },
-                    { text: 'GTB Mastercard' },
+                    { text: 'GTB current account' },
+                    { text: 'Stanbic current account' },
                     { text: 'New payment option' }
                 ],
                 //destructiveText: '',

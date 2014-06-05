@@ -13,10 +13,11 @@
             <a class="item item-icon-left" ng-click="showPaymentSheet()">
                 <i class="icon ion-card"></i>
 
-                <span class="">GTB personal mastercard</span>
+                <span class="">GTB Current account</span>
             </a>
             <div class="item amount-item stable-bg">
-                 <span class="text-muted pay-label">Amount to pay</span> <span class="pull-right text-bofld">NGN {{amount_to_pay | number}}</span>
+                 <!--<span class="text-muted pay-label">Amount to pay</span> -->
+                <span class="pull-right text-bofld">NGN {{amount_to_pay | number}}</span>
             </div>
 
             <!--<div class="item item-body">-->
@@ -38,7 +39,7 @@
                 <!--</a>-->
             <!--</div>-->
 
-            <div class="item tight-item">
+            <div class="item tight-item b-t-none b-b-none">
                 <div class="row">
                     <div class="col key-input">1</div>
                     <div class="col key-input">2</div>
@@ -55,32 +56,43 @@
                     <div class="col key-input">9</div>
                 </div>
                 <div class="row">
-                    <div class="col key-input">C</div>
-                    <div class="col key-input">0</div>
                     <div class="col key-input">.</div>
+                    <div class="col key-input">0</div>
+                    <div class="col key-input">
+                     <i class="icon ion-ios7-close-outline"></i>
+                    </div>
                 </div>
             </div>
+            <div class="item  amount-item  text-center positive-bg light"  ng-click="confirmMerchant(amount_to_pay)">
 
-        </div>
-
-
-
-
-        <div class="padding-left padding-right">
-            <!--<label class="item item-input">-->
-                <!--<input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">-->
-            <!--</label>-->
-
-            <a href="" ng-click="confirmMerchant(amount_to_pay)" class="button button-block button-large button-positive">
                 Pay NGN {{amount_to_pay | number}}
-            </a>
+            </div>
+            <div ng-click="closeModal()" class="item  amount-item  text-center stable-bg" >
+
+                Cancel
+            </div>
+
+
         </div>
 
-        <div class="padding-left padding-right">
-            <a href="" ng-click="closeModal()" class="button button-block button-large button-stable">
-                Cancel
-            </a>
-        </div>
+
+
+
+        <!--<div class="padding-left padding-right">-->
+            <!--&lt;!&ndash;<label class="item item-input">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">&ndash;&gt;-->
+            <!--&lt;!&ndash;</label>&ndash;&gt;-->
+
+            <!--<a href="" ng-click="confirmMerchant(amount_to_pay)" class="button button-block button-large button-positive">-->
+                <!--Pay NGN {{amount_to_pay | number}}-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--<div class="padding-left padding-right">-->
+            <!--<a href="" ng-click="closeModal()" class="button button-block button-large button-stable">-->
+                <!--Cancel-->
+            <!--</a>-->
+        <!--</div>-->
     </ion-content>
 </div>
 

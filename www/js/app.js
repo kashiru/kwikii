@@ -102,6 +102,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.payment_options', {
+          url: "/payment_options",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/payment_options.html"
+              }
+          }
+      })
       .state('app.splash', {
           url: "/splash",
           views: {

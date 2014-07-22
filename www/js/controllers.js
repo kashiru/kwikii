@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $location, $ionicActionSheet, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $location, $ionicActionSheet, $timeout, ContactService) {
 
         $scope.amount_to_pay = 12000.0;
 
@@ -10,8 +10,66 @@ angular.module('starter.controllers', [])
             animation: 'slide-in-up'
         }).then(function(modal) {
                 $scope.modal = modal;
-//            $scope.modal.show();
             });
+
+
+
+        $ionicModal.fromTemplateUrl('templates/find_contact.html?q=' + rander, {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.contacts_modal = modal;
+        });
+
+
+        $scope.state = "find";
+
+        $scope.contacts = [];
+
+        //$scope.contact = {};
+
+
+        $scope.openContactsModal = function () {
+            $scope.contacts_modal.show();
+
+            $scope.findContact();
+
+        };
+
+        $scope.findContact = function (contactSearch) {
+            ContactService.find(contactSearch).then(function (contacts) {
+                $scope.contacts = contacts;
+
+            }, function (error) {
+                console.log(error);
+            });
+        };
+
+
+
+
+//        $scope.openContactsModal = function() {
+//
+
+////            $scope.contacts_modal.show();
+////
+//            var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+//            navigator.contacts.find(function(contacts){
+//                alert('found!');
+//                //alert(contacts.length)
+//
+//            },function(contactError){
+//                alert('failed')
+//            })
+//
+//        };
+
+
+        $scope.closeContactsModal = function() {
+            $scope.contacts_modal.hide();
+        };
+
+
         $scope.openModal = function() {
             $scope.modal.show();
         };
@@ -61,6 +119,8 @@ angular.module('starter.controllers', [])
 
 
         };
+
+
 
 
 

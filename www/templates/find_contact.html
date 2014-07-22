@@ -1,45 +1,38 @@
 <div class="modal">
-    <ion-header-bar>
-        <h1 class="title">Confirm amount</h1>
-    </ion-header-bar>
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" ng-model="contact_search" placeholder="Search">
+        </label>
+        <button class="button button-clear" ng-click="closeContactsModal()">
+            Cancel
+        </button>
+    </div>
     <ion-content class="bg-pattern">
+        <div class="item item-button-right m-t-search-bar">
+            Use new number
+            <button class="button button-positive button-clear">
+                <i class="icon ion-plus"></i>
+            </button>
+        </div>
         <div class="list">
-            <div class="item">
-                Kola Ashiru <br>
-                <small>0810-360-8580</small>
 
+
+            <div class="item item-divider">
+                Eligible Kwikii recipients
             </div>
-
-
-
-
-
-            <div ng-click="closeModal()" class="item  amount-item  text-center stable-bg" >
-
-                Cancel
+            <div  ng-if="contact.phoneNumbers.length > 0" class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="doSomething()">
+                <i class="icon ion-person text-muted"></i>
+                <h2>{{contact.name.formatted}}</h2>
+                <p ng-show="contact.phoneNumbers.length == 1" class="t-d-none">{{contact.phoneNumbers[0].value}}</p>
+                <p ng-show="contact.phoneNumbers.length > 1" class="t-d-none">Multiple numbers, please select</p>
             </div>
-
 
         </div>
 
 
 
 
-        <!--<div class="padding-left padding-right">-->
-        <!--&lt;!&ndash;<label class="item item-input">&ndash;&gt;-->
-        <!--&lt;!&ndash;<input type="number" ng-model="amount_to_pay" placeholder="Amount to pay">&ndash;&gt;-->
-        <!--&lt;!&ndash;</label>&ndash;&gt;-->
-
-        <!--<a href="" ng-click="confirmMerchant(amount_to_pay)" class="button button-block button-large button-positive">-->
-        <!--Pay NGN {{amount_to_pay | number}}-->
-        <!--</a>-->
-        <!--</div>-->
-
-        <!--<div class="padding-left padding-right">-->
-        <!--<a href="" ng-click="closeModal()" class="button button-block button-large button-stable">-->
-        <!--Cancel-->
-        <!--</a>-->
-        <!--</div>-->
     </ion-content>
 </div>
 

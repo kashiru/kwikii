@@ -114,7 +114,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           url: "/splash",
           views: {
               'menuContent' :{
-                  templateUrl: "templates/splash.html"
+                  templateUrl: "templates/splash.html",
+                  controller: 'SplashCtrl'
               }
           }
       });

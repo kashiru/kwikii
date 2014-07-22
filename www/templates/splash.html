@@ -10,15 +10,57 @@
                 <div class="text-center text-white tagline">Pay for anything, anywhere</div>
             </div>
             <div class="p-h-md m-t-xtreme">
-                <a href="#/app/sign_up" class="button button-block button-large button-positive">
-                    Sign up
-                </a>
+
+                <div class="well well-sm login-container">
+                    <div ng-show="mode == 'signup'">
+                        <div class="list list-inset" >
+                            <label class="item item-input">
+                                <input type="text" placeholder="Full name">
+                            </label>
+                            <label class="item item-input">
+                                <input type="text" placeholder="Email">
+                            </label>
+                            <label class="item item-input">
+                                <input type="password" placeholder="Pick a password">
+                            </label>
+                        </div>
+
+                        <div class="padding-left padding-right">
+                            <a href="#/app/home" class="button button-block button-large button-positive">
+                                Sign up
+                            </a>
+
+                            <button ng-click="switchMode('signin')" class="button button-outdline button-block button-large button-light">
+                                Sign in
+                            </button>
+                        </div>
+                    </div>
+
+                    <div ng-show="mode == 'signin'">
+                        <div class="list list-inset" >
+                            <label class="item item-input">
+                                <input type="text" placeholder="Email">
+                            </label>
+                            <label class="item item-input">
+                                <input type="password" placeholder="Password">
+                            </label>
+                        </div>
+
+                        <div class="padding-left padding-right">
+                            <a href="#/app/home" class="button button-block button-large button-positive">
+                                Sign in
+                            </a>
+
+                            <button  ng-click="switchMode('signup')" class="button button-outdline button-block button-large button-light">
+                                Sign up
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="p-h-md">
-                <a href="#/app/sign_in" class="button button-block button-large button-light">
-                    Sign in
-                </a>
-            </div>
+
         </div>
 
     </ion-content>

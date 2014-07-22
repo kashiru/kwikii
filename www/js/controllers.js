@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $location, $ionicActionSheet) {
+.controller('AppCtrl', function($scope, $ionicModal, $location, $ionicActionSheet, $timeout) {
 
         $scope.amount_to_pay = 12000.0;
 
@@ -50,6 +50,18 @@ angular.module('starter.controllers', [])
         };
 
 
+        $scope.doRefresh = function() {
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+
+
+
+
+
+        };
+
 
 
 
@@ -66,5 +78,14 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('SplashCtrl', function($scope) {
+        $scope.mode = 'signin';
+
+        $scope.switchMode = function(val){
+            $scope.mode = val;
+        }
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+
 })

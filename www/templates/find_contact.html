@@ -2,7 +2,7 @@
     <div class="bar bar-header item-input-inset">
         <label class="item-input-wrapper">
             <i class="icon ion-ios7-search placeholder-icon"></i>
-            <input type="search" ng-model="contact_search" placeholder="Search">
+            <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off"  ng-model="contact_search" placeholder="Search">
         </label>
         <button class="button button-clear" ng-click="closeContactsModal()">
             Cancel
@@ -21,7 +21,7 @@
             <div class="item item-divider">
                 Eligible Kwikii recipients
             </div>
-            <div  ng-if="contact.phoneNumbers.length > 0" class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="doSomething()">
+            <div   class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="selectContact(contact)">
                 <i class="icon ion-person text-muted"></i>
                 <h2>{{contact.name.formatted}}</h2>
                 <p ng-show="contact.phoneNumbers.length == 1" class="t-d-none">{{contact.phoneNumbers[0].value}}</p>

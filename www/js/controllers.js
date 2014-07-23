@@ -107,6 +107,47 @@ angular.module('starter.controllers', [])
 
         };
 
+        $scope.selectContact = function(contact) {
+
+            if(contact.phoneNumbers.length == 0){
+
+            }
+            else if(contact.phoneNumbers.length == 1){
+
+                $scope.selected_contact = {name: contact.name.formatted, number: contact.phoneNumbers[0].value}
+                $scope.confirmContact();
+            }else if(contact.phoneNumbers.length > 1){
+                var numbers = [];
+
+                for (var j = 0; j < contact.phoneNumbers.length; j++){
+
+                    var entry = {text: contact.phoneNumbers[j].value}
+                    numbers.push(entry);
+
+                }
+
+                // Show the action sheet
+                $ionicActionSheet.show({
+                    buttons: numbers,
+                    //destructiveText: '',
+                    titleText: contact.name.formatted,
+                    cancelText: 'Cancel',
+                    buttonClicked: function(index) {
+
+                        $scope.selected_contact = {name: contact.name.formatted, number: contact.phoneNumbers[index].value};
+                        $scope.confirmContact();
+
+                        return true;
+                    }
+                });
+            }
+        };
+
+        $scope.confirmContact = function(){
+            $scope.closeContactsModal();
+
+        }
+
 
         $scope.doRefresh = function() {
 

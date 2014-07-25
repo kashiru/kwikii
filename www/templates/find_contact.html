@@ -1,27 +1,32 @@
-<div class="modal">
-    <div class="bar bar-header item-input-inset">
-        <label class="item-input-wrapper">
-            <i class="icon ion-ios7-search placeholder-icon"></i>
-            <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off"  ng-model="contact_search" placeholder="Search">
-        </label>
-        <button class="button button-clear" ng-click="closeContactsModal()">
-            Cancel
-        </button>
-    </div>
-    <ion-content class="bg-pattern">
-        <div class="item item-button-right m-t-search-bar">
-            Use new number
-            <button class="button button-positive button-clear">
-                <i class="icon ion-plus"></i>
-            </button>
-        </div>
+<ion-view title="Find contact">
+    <ion-nav-buttons side="left">
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    </ion-nav-buttons>
+    <ion-content class="has-header bg-pattern">
+        <!--<div class="p-h-md m-t-large">-->
+            <!--<label class="item item-input">-->
+                <!--<i class="icon ion-search placeholder-icon"></i>-->
+                <!--<input type="text" ng-model="contact_search" placeholder="Find contact">-->
+            <!--</label>-->
+        <!--</div>-->
+
+
+
         <div class="list">
-
-
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" ng-model="contact_search" placeholder="Find contact">
+            </label>
+            <div class="item item-button-right">
+                Use new number
+                <button class="button button-positive button-clear">
+                    <i class="icon ion-plus"></i>
+                </button>
+            </div>
             <div class="item item-divider">
                 Eligible Kwikii recipients
             </div>
-            <div   class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="selectContact(contact)">
+            <div class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="selectContact(contact)">
                 <i class="icon ion-person text-muted"></i>
                 <h2>{{contact.name.formatted}}</h2>
                 <p ng-show="contact.phoneNumbers.length == 1" class="t-d-none">{{contact.phoneNumbers[0].value}}</p>
@@ -33,6 +38,7 @@
 
 
 
-    </ion-content>
-</div>
 
+
+    </ion-content>
+</ion-view>

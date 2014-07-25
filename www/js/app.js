@@ -94,6 +94,15 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.find_contact', {
+          url: "/find_contact",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/find_contact.html",
+                  controller: "ContactCtrl"
+              }
+          }
+      })
       .state('app.payment_confirmation', {
           url: "/payment_confirmation",
           views: {

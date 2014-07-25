@@ -14,61 +14,6 @@ angular.module('starter.controllers', [])
 
 
 
-        $ionicModal.fromTemplateUrl('templates/find_contact.html?q=' + rander, {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.contacts_modal = modal;
-        });
-
-
-        $scope.state = "find";
-
-        $scope.contacts = [];
-
-        //$scope.contact = {};
-
-
-        $scope.openContactsModal = function () {
-            $scope.contacts_modal.show();
-
-            $scope.findContact();
-
-        };
-
-        $scope.findContact = function (contactSearch) {
-            ContactService.find(contactSearch).then(function (contacts) {
-                $scope.contacts = contacts;
-
-            }, function (error) {
-                console.log(error);
-            });
-        };
-
-
-
-
-//        $scope.openContactsModal = function() {
-//
-
-////            $scope.contacts_modal.show();
-////
-//            var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
-//            navigator.contacts.find(function(contacts){
-//                alert('found!');
-//                //alert(contacts.length)
-//
-//            },function(contactError){
-//                alert('failed')
-//            })
-//
-//        };
-
-
-        $scope.closeContactsModal = function() {
-            $scope.contacts_modal.hide();
-        };
-
 
         $scope.openModal = function() {
             $scope.modal.show();
@@ -106,6 +51,67 @@ angular.module('starter.controllers', [])
             });
 
         };
+
+
+
+
+        $scope.doRefresh = function() {
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+
+
+
+
+
+        };
+
+
+
+
+
+
+})
+
+.controller('PlaylistsCtrl', function($scope) {
+  $scope.playlists = [
+    { title: 'Reggae', id: 1 },
+    { title: 'Chill', id: 2 },
+    { title: 'Dubstep', id: 3 },
+    { title: 'Indie', id: 4 },
+    { title: 'Rap', id: 5 },
+    { title: 'Cowbell', id: 6 }
+  ];
+})
+
+.controller('SplashCtrl', function($scope) {
+        $scope.mode = 'signin';
+
+        $scope.switchMode = function(val){
+            $scope.mode = val;
+        }
+})
+
+    .controller('ContactCtrl', function($scope, ContactService) {
+
+
+        $scope.state = "find";
+
+        $scope.contacts = [];
+
+
+
+        $scope.findContact = function (contactSearch) {
+            ContactService.find(contactSearch).then(function (contacts) {
+                $scope.contacts = contacts;
+
+            }, function (error) {
+                console.log(error);
+            });
+        };
+
+        $scope.findContact();
 
         $scope.selectContact = function(contact) {
 
@@ -148,44 +154,7 @@ angular.module('starter.controllers', [])
 
         }
 
-
-        $scope.doRefresh = function() {
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
-
-
-
-
-
-        };
-
-
-
-
-
-
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('SplashCtrl', function($scope) {
-        $scope.mode = 'signin';
-
-        $scope.switchMode = function(val){
-            $scope.mode = val;
-        }
-})
+    })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 

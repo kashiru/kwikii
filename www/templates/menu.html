@@ -8,19 +8,25 @@
   </ion-pane>
 
   <ion-side-menu side="left">
-
-    <ion-content >
+      <header class="bar bar-header bar-dark">
+          <h1 class="title">Kwikii</h1>
+      </header>
+    <ion-content class="has-header" >
       <ion-list>
         <ion-item nav-clear menu-close href="#/app/home">
-          Home
+            <i class="icon ion-home"></i>
+            Home
         </ion-item>
           <ion-item nav-clear menu-close href="#/app/payment_options">
-            My profile
+              <i class="icon ion-person"></i>
+            My account
           </ion-item>
         <ion-item nav-clear menu-close href="">
-          Transaction history
+            <i class="icon ion-navicon-round"></i>
+          Activity
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/splash">
+            <i class="icon ion-log-out"></i>
           Sign out
         </ion-item>
       </ion-list>

@@ -60,11 +60,6 @@ angular.module('starter.controllers', [])
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
-
-
-
-
-
         };
 
 
@@ -93,7 +88,7 @@ angular.module('starter.controllers', [])
         }
 })
 
-    .controller('ContactCtrl', function($scope, ContactService) {
+    .controller('ContactCtrl', function($scope, ContactService, $ionicActionSheet, $location) {
 
 
         $scope.state = "find";
@@ -111,18 +106,25 @@ angular.module('starter.controllers', [])
             });
         };
 
-        $scope.findContact();
+
+        if(!!window.cordova){
+            $scope.findContact();
+        }
+
 
         $scope.selectContact = function(contact) {
+
 
             if(contact.phoneNumbers.length == 0){
 
             }
             else if(contact.phoneNumbers.length == 1){
 
+
                 $scope.selected_contact = {name: contact.name.formatted, number: contact.phoneNumbers[0].value}
                 $scope.confirmContact();
             }else if(contact.phoneNumbers.length > 1){
+
                 var numbers = [];
 
                 for (var j = 0; j < contact.phoneNumbers.length; j++){
@@ -150,9 +152,19 @@ angular.module('starter.controllers', [])
         };
 
         $scope.confirmContact = function(){
-            $scope.closeContactsModal();
+
+
+            //$state.go('app.transfer');
+            $location.path('app/transfer');
+            //$scope.closeContactsModal();
 
         }
+
+    })
+    .controller('TransferCtrl', function($scope) {
+
+
+
 
     })
 

@@ -168,20 +168,20 @@ small, .small {
     margin-left: -1px;
 }
 
-.menu{
-    background: linear-gradient(to bottom, #2c3742 0%,#28303a 100%);
-    background: -webkit-linear-gradient(top, #2c3742 0%,#28303a 100%);
-}
+/*.menu{*/
+    /*background: linear-gradient(to bottom, #2c3742 0%,#28303a 100%);*/
+    /*background: -webkit-linear-gradient(top, #2c3742 0%,#28303a 100%);*/
+/*}*/
 
-.menu .item-content{
-    color: #ffffff;
-    background: linear-gradient(to bottom, #2c3742 0%,#28303a 100%);
-    background: -webkit-linear-gradient(top, #2c3742 0%,#28303a 100%);
-}
+/*.menu .item-content{*/
+    /*color: #ffffff;*/
+    /*background: linear-gradient(to bottom, #2c3742 0%,#28303a 100%);*/
+    /*background: -webkit-linear-gradient(top, #2c3742 0%,#28303a 100%);*/
+/*}*/
 
-.menu .item{
-    border-color: #000000;
-}
+/*.menu .item{*/
+    /*border-color: #000000;*/
+/*}*/
 
 .bar.bar-stable {
     background-image: -webkit-linear-gradient(0deg, #b2b2b2, #b2b2b2 100%, transparent 50%);

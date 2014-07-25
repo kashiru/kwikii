@@ -1,4 +1,4 @@
-kwikii_app.factory("ContactService", function ($rootScope, $q) {
+kwikii_app.service("ContactService", function ($rootScope, $q) {
 
 
     return {
@@ -27,3 +27,4 @@ kwikii_app.factory("ContactService", function ($rootScope, $q) {
         }
     };
 });
+

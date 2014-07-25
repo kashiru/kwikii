@@ -111,6 +111,15 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+      .state('app.transfer', {
+          url: "/transfer",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/transfer.html",
+                  controller: "TransferCtrl"
+              }
+          }
+      })
       .state('app.payment_options', {
           url: "/payment_options",
           views: {

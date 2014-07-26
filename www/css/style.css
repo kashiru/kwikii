@@ -232,4 +232,7 @@ small, .small {
     color: gray;
 }
 
+.transactions-list p {
+    margin: 0 0 0px;
+}
 

@@ -4,21 +4,29 @@
     </ion-nav-buttons>
     <ion-content class="has-header bg-pattern">
         <div class="list cadrd">
-            <div class="item">
+            <div class="item item-text-wrap">
                 Payment confirmation #1032023943
-                <p>
-                    Your payment of {{confirmed_amount | currency }} has been received by Paris Deli
+                <p class="">
+                    Your payment of {{confirmed_amount | currency }} has been sent to {{contact.name}}
                 </p>
             </div>
-            <div class="item item-avatar">
-                <img src="img/parisdeli.jpg">
-                <h2>Paris Deli</h2>
-                <p class="small">Adeola Odeku, Victoria Island</p>
+            <div class="item item-icon-left">
+                <i class="icon ion-person"></i>
+                <h2>{{contact.name}}</h2>
+                <p class="small">{{contact.phone_numbers[0]}}</p>
             </div>
             <a href="" class="item item-icon-left">
                 <i class="text-muted icon ion-star"></i>
                 Save as favorite
             </a>
         </div>
+
+        <div class="p-h-md">
+            <a href="#/app/home" class="button button-block button-large button-positive">
+                Okay, cool
+            </a>
+        </div>
+
+
     </ion-content>
 </ion-view>

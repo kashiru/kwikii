@@ -81,7 +81,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SplashCtrl', function($scope) {
-        $scope.mode = 'signin';
+        $scope.mode = 'signup';
 
         $scope.switchMode = function(val){
             $scope.mode = val;
@@ -197,11 +197,41 @@ angular.module('starter.controllers', [])
                 $scope.confirmMerchant(13000);
                 console.log('Tapped!', res);
             });
-
-//            $timeout(function() {
-//                myPopup.close(); //close the popup after 3 seconds for some reason
-//            }, 3000);
         };
+
+        $scope.confirmMerchant = function(val){
+            //$scope.closeModal();
+            $location.path('/app/payment_confirmation/' + contact.id);
+            $scope.confirmed_amount = val;
+        };
+
+
+
+
+
+    })
+    .controller('TransactionCtrl', function($scope, transaction, $ionicPopup, $location) {
+
+        $scope.transaction = transaction;
+
+
+
+
+
+    })
+    .controller('TransactionsCtrl', function($scope, transactions, $location) {
+
+        $scope.transactions = transactions;
+
+
+
+
+
+    })
+    .controller('ConfirmationCtrl', function($scope, contact, $location) {
+
+        $scope.contact = contact;
+        $scope.confirmed_amount = 12000;
 
 
 

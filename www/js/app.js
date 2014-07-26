@@ -109,10 +109,16 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
           }
       })
       .state('app.payment_confirmation', {
-          url: "/payment_confirmation",
+          url: "/payment_confirmation/:contact_id",
           views: {
               'menuContent' :{
-                  templateUrl: "templates/payment_confirmation.html"
+                  templateUrl: "templates/payment_confirmation.html",
+                  controller: "ConfirmationCtrl"
+              }
+          },
+          resolve: {
+              contact: function($stateParams, LocalContactService) {
+                  return LocalContactService.getContact($stateParams.contact_id)
               }
           }
       })
@@ -127,6 +133,34 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
           resolve: {
               contact: function($stateParams, LocalContactService) {
                   return LocalContactService.getContact($stateParams.contact_id)
+              }
+          }
+      })
+      .state('app.transactions', {
+          url: "/transactions",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/transactions.html",
+                  controller: "TransactionsCtrl"
+              }
+          },
+          resolve: {
+              transactions: function(TransactionService) {
+                  return TransactionService.getTransactions()
+              }
+          }
+      })
+      .state('app.transaction', {
+          url: "/transactions/:transaction_id",
+          views: {
+              'menuContent' :{
+                  templateUrl: "templates/transaction.html",
+                  controller: "TransactionCtrl"
+              }
+          },
+          resolve: {
+              transaction: function($stateParams, TransactionService) {
+                  return TransactionService.getTransaction($stateParams.transaction_id)
               }
           }
       })

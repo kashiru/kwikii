@@ -1,0 +1,26 @@
+<ion-view title="Transfers" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header bg-pattern">
+
+        <div class="list transactions-list">
+
+            <a href="#/app/transactions/{{transaction.id}}" class="item  item-icon-right" ng-repeat="transaction in transactions">
+                <span class="text-muted">To </span>{{transaction.to.name}}
+                <h2 class="pull-right"> NGN {{transaction.amount | number}}</h2>
+                <p>{{transaction.created_at | date:'medium'}}</p>
+                <i class=" text-muted icon ion-ios7-arrow-right"></i>
+            </a>
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>
+
+
+
+
+

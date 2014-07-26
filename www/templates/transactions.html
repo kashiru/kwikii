@@ -6,7 +6,7 @@
 
         <div class="list transactions-list">
 
-            <a href="#/app/transactions/{{transaction.id}}" class="item  item-icon-right" ng-repeat="transaction in transactions">
+            <a href="#/app/transactions/{{transaction.id}}" class="item item-icon-right" ng-repeat="transaction in transactions">
                 <span class="text-muted">To </span>{{transaction.to.name}}
                 <h2 class="pull-right"> NGN {{transaction.amount | number}}</h2>
                 <p>{{transaction.created_at | date:'medium'}}</p>

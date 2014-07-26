@@ -162,9 +162,48 @@ angular.module('starter.controllers', [])
         }
 
     })
-    .controller('TransferCtrl', function($scope, contact) {
+    .controller('TransferCtrl', function($scope, contact, $ionicPopup, $location) {
 
         $scope.contact = contact;
+
+        // Triggered on a button click, or some other target
+        $scope.showPopup = function() {
+            $scope.data = {}
+
+            // An elaborate, custom popup
+            var myPopup = $ionicPopup.show({
+                template: '<input type="password" ng-model="data.wifi">',
+                title: 'Enter your kwikii password',
+                subTitle: 'This is a security precaution',
+                scope: $scope,
+                buttons: [
+                    { text: 'Cancel' },
+                    {
+                        text: '<b>Continue</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            if (!$scope.data.wifi) {
+                                //don't allow the user to close unless he enters wifi password
+                                e.preventDefault();
+                            } else {
+                                //$location.path('app/payment_confirmation')
+                                return $scope.data.wifi;
+                            }
+                        }
+                    },
+                ]
+            });
+            myPopup.then(function(res) {
+                $scope.confirmMerchant(13000);
+                console.log('Tapped!', res);
+            });
+
+//            $timeout(function() {
+//                myPopup.close(); //close the popup after 3 seconds for some reason
+//            }, 3000);
+        };
+
+
 
 
 

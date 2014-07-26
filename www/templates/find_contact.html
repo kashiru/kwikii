@@ -9,9 +9,6 @@
                 <!--<input type="text" ng-model="contact_search" placeholder="Find contact">-->
             <!--</label>-->
         <!--</div>-->
-
-
-
         <div class="list">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
@@ -26,6 +23,12 @@
             <div class="item item-divider">
                 Eligible Kwikii recipients
             </div>
+            <a class="item item-icon-left" ng-repeat="contact in local_contacts  | filter:contact_search" href="#/app/transfer/{{contact.id}}">
+                <i class="icon ion-person text-muted"></i>
+                <h2>{{contact.name}}</h2>
+                <p ng-show="contact.phone_numbers.length == 1" class="t-d-none">{{contact.phone_numbers[0]}}</p>
+                <p ng-show="contact.phone_numbers.length > 1" class="t-d-none">Multiple numbers, please select</p>
+            </a>
             <div class="item item-icon-left" ng-repeat="contact in contacts  | orderBy:'contact.name.formatted'  | filter:contact_search " ng-click="selectContact(contact)">
                 <i class="icon ion-person text-muted"></i>
                 <h2>{{contact.name.formatted}}</h2>

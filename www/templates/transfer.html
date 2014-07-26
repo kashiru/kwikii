@@ -8,21 +8,26 @@
 
 
 
-            <div class="item item-avatar">
+            <div ng-hide="contact" class="item item-avatar">
                 <img src="img/parisdeli.jpg">
                 <h2>Paris Deli</h2>
                 <p class="small">Adeola Odeku, Victoria Island</p>
             </div>
-            <div class="item item-icon-left">
-                <i class="icon ion-person text-muted"></i>
-                <h2>Yomi Adedeji</h2>
-                <p class="small">0810-374-3453</p>
+            <div class="item item-divider">
+                Transfer to
             </div>
-
+            <div ng-show="contact" class="item item-icon-left">
+                <i class="icon ion-person text-muted"></i>
+                <h2>{{contact.name}}</h2>
+                <p class="small">{{contact.phone_numbers[0]}}</p>
+            </div>
+            <div class="item item-divider">
+                Transfer from
+            </div>
             <a class="item item-icon-left" ng-click="showPaymentSheet()">
-                <i class="icon ion-card"></i>
+                <i class="icon ion-cash"></i>
 
-                <span class="">GTB Current account</span>
+                <span class="">Your GTB Current account</span>
             </a>
             <!--<div class="item amount-item stable-bg">-->
                 <!--<span class="pull-right text-bofld">NGN {{amount_to_pay | number}}</span>-->

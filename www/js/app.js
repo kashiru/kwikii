@@ -101,6 +101,11 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
                   templateUrl: "templates/find_contact.html",
                   controller: "ContactCtrl"
               }
+          },
+          resolve: {
+              contacts: function(LocalContactService) {
+                  return LocalContactService.getContacts()
+              }
           }
       })
       .state('app.payment_confirmation', {
@@ -112,11 +117,16 @@ var kwikii_app = angular.module('starter', ['ionic', 'starter.controllers'])
           }
       })
       .state('app.transfer', {
-          url: "/transfer",
+          url: "/transfer/:contact_id",
           views: {
               'menuContent' :{
                   templateUrl: "templates/transfer.html",
                   controller: "TransferCtrl"
+              }
+          },
+          resolve: {
+              contact: function($stateParams, LocalContactService) {
+                  return LocalContactService.getContact($stateParams.contact_id)
               }
           }
       })

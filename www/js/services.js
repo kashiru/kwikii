@@ -28,3 +28,32 @@ kwikii_app.service("ContactService", function ($rootScope, $q) {
     };
 });
 
+
+kwikii_app.service('LocalContactService', function($q) {
+    return {
+        contacts: [
+            {
+                id: '1',
+                name: 'Kola Ashiru',
+                phone_numbers: ['0810-360-8580']
+            },
+            {
+                id: '2',
+                name: 'Yomi Adedeji',
+                phone_numbers: ['0803-234-3433']
+            }
+        ],
+        getContacts: function() {
+            return this.contacts
+        },
+        getContact: function(contact_id) {
+            var dfd = $q.defer()
+            this.contacts.forEach(function(contact) {
+                if (contact.id === contact_id) dfd.resolve(contact)
+            })
+
+            return dfd.promise
+        }
+
+    }
+})

@@ -88,9 +88,10 @@ angular.module('starter.controllers', [])
         }
 })
 
-    .controller('ContactCtrl', function($scope, ContactService, $ionicActionSheet, $location) {
+    .controller('ContactCtrl', function($scope, ContactService, $ionicActionSheet, $location, contacts) {
 
 
+        $scope.local_contacts = contacts;
         $scope.state = "find";
 
         $scope.contacts = [];
@@ -161,8 +162,9 @@ angular.module('starter.controllers', [])
         }
 
     })
-    .controller('TransferCtrl', function($scope) {
+    .controller('TransferCtrl', function($scope, contact) {
 
+        $scope.contact = contact;
 
 
 

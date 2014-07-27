@@ -1,17 +1,7 @@
 {
-  "name": "kwikii",
-  "version": "0.0.1",
-  "authors": [
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "www/components",
-    "www/spec",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "steroids-js": "3.1.x"
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.10"
   }
 }
